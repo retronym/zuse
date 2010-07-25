@@ -22,4 +22,7 @@ object Tuples {
   // Tuples can also deconstructed with pattern matching
   val (a, _, c) = t
   assert(a + c == 0)
+
+  // Tuples, like all case classes, can be copied with some changes
+  assert(t.copy(_2 = "boo") == (-1, "boo", 1))
 }
