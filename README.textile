@@ -94,6 +94,20 @@ h2. IDE
 * "IntelliJ 9.0.3 Community Edition":http://www.jetbrains.com/idea/download/
 * "Scala Plugin (nightly build)":http://confluence.jetbrains.net/display/SCA/Scala+Plugin+Nightly+Builds
 
+Unzip the Scala Plugin to: ${idea.plugins.path}.
+
+<pre><code>
+ ~/code/zuse[master*]: cd /Users/jason/Library/Application\ Support/IntelliJIdea90/
+ ~/Library/Application Support/IntelliJIdea90: find Scala
+Scala
+Scala/lib
+Scala/lib/scala-compiler.jar
+Scala/lib/scala-library.jar
+Scala/lib/scala-plugin-runners.jar
+Scala/lib/scala-plugin.jar
+Scala/lib/scalap.jar
+</pre></code>
+
 Netbeans and Eclipse also have Scala Plugins. TextMate, VIM, and Emacs also have Scala integration.
 
 h2. Build
