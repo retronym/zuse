@@ -38,6 +38,7 @@ object Expressions {
   // () of type Unit is used.
   val u1: Unit = while (false) println("")
   val u2: Unit = println("foo")
+  val u3: Unit = ()
 
   // For methods that don't actually return at all, the type Nothing can be used.
   lazy val n1: Nothing = error("")
