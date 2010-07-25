@@ -1,0 +1,223 @@
+h1. Zurich Scala Enthusiasts
+
+What better way to communicate than through code? This is the home for samples, demos, and exercises of the "Zurich Scala Enthusiasts":http://www.meetup.com/Zurich-Scala/.
+
+h2. Getting Started with Scala
+
+h3. Installing Scala
+
+<pre><code> 
+ ~/code/zuse: curl http://www.scala-lang.org/downloads/distrib/files/scala-2.8.0.final-installer.jar > /tmp/scala.jar
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 35.4M  100 35.4M    0     0   949k      0  0:00:38  0:00:38 --:--:--  870k
+ ~/code/zuse: java -jar /tmp/scala.jar 
+
+ ~/code/zuse: cd ~/scala/bin
+
+ ~/scala/bin: sbaz install scala-tool-support
+ planning to install: scala-tool-support/2.8.0.RC7
+ Installing...
+ Downloading: http://scala.epfl.ch/downloads/packages/scala-tool-support-2.8.0.RC7.sbp
+ 179.5K/179.5K Done
+ 
+ ~/scala/bin: mate ~/.bash_profile  
+ export SCALA_HOME=~/scala
+ export PATH=$PATH:$SCALA_HOME/bin
+ source $SCALA_HOME/misc/scala-tool-support/bash-completion/scala_completion.sh ~
+
+ ~/scala/bin: cd ~/code/zuse
+ 
+ ~/code/zuse: . ~/.bash_profile               
+  
+ ~/code/zuse: scala -version
+ Scala code runner version 2.8.0.final -- Copyright 2002-2010, LAMP/EPFL
+
+ ~/code/zuse: scala -d
+ -d               -dependencyfile  -deprecation
+                                 
+ </pre></code>   
+
+So, that's the Scala package installed. What can we do with it?
+ 
+ h3. Hello, REPL
+
+The Scala Interpreter is a great environment to experiment and learn.
+ 
+You can execute a snippet of code directly:
+ <pre><code>
+ ~/code/zuse: scala -e 'println("Hello, World!")'
+ Hello, World!
+ </pre></code>
+ 
+ Or, you can drop into a shell and evaluate expressions:
+
+ <pre><code>
+  ~/code/zuse: scala
+ Welcome to Scala version 2.8.0.final (Java HotSpot(TM) 64-Bit Server VM, Java 1.6.0_20).
+ Type in expressions to have them evaluated.
+ Type :help for more information.
+
+ scala> println("Hello, World!")
+ Hello, World!
+
+ scala> val is = List(1, 2, 3)
+ is: List[Int] = List(1, 2, 3)
+
+ scala> is.reverse
+ res1: List[Int] = List(3, 2, 1)
+
+ scala> is ++ is     
+ res2: List[Int] = List(1, 2, 3, 1, 2, 3)
+
+ scala> res2  // 'res2' is an automatically generated variable name for the previous expression.
+ res3: List[Int] = List(1, 2, 3, 1, 2, 3)
+
+ scala> .sum  // .sum is a shortcut here for res3.sum.
+ res4: Int = 12
+
+ scala> .toString
+ res5: java.lang.String = 12
+ </pre></code>
+ 
+h2. Documentation / Books
+
+* "Scala Language Specification":http://www.scala-lang.org/sites/default/files/linuxsoft_archives/docu/files/ScalaReference.pdf
+* "Programming Scala, (Wampler, Payne)":http://programming-scala.labs.oreilly.com/
+* "Programming in Scala, (Odersky, Spoon, Venners)":http://www.artima.com/shop/programming_in_scala
+* "Stack Overflow, #scala":http://stackoverflow.com/questions/tagged?tagnames=scala&sort=votes&pagesize=15
+* "FreeNode IRC, #scala":http://webchat.freenode.net/
+* "scala-user Mailing List":http://www.scala-lang.org/node/199
+
+h2. IDE
+
+* "IntelliJ 9.0.3 Community Edition":http://www.jetbrains.com/idea/download/
+* "Scala Plugin (nightly build)":http://confluence.jetbrains.net/display/SCA/Scala+Plugin+Nightly+Builds
+
+Netbeans and Eclipse also have Scala Plugins. TextMate, VIM, and Emacs also have Scala integration.
+
+h2. Build
+
+Scala projects can be build with Ant and Maven, but by far the best option for Scala projects is the "Simple Build Tool":http://code.google.com/p/simple-build-tool/
+
+You can install SBT once, and add the startup script to your path. It's also quite common to check in the tiny launcher JAR and the startup script into your project,
+which is convenient for 'checkout-and-build'.
+
+I also add a custom properties file to trigger SBT to download the sources for Scala itself, which is handy to link in to your IDE.
+
+<pre><code>
+ ~/code/zuse: curl http://simple-build-tool.googlecode.com/files/sbt-launch-0.7.4.jar > sbt-launch-0.7.4.jar
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  906k  100  906k    0     0   316k      0  0:00:02  0:00:02 --:--:--  330k
+
+ ~/code/zuse: cat sbt
+#!/bin/bash
+
+java $SBT_OPTS -Dfile.encoding=UTF-8 -Xss4M -Xmx1024M -XX:MaxPermSize=256M -jar `dirname $0`/sbt-launch-0.7.4.jar @sbt.boot.properties "$@"
+
+</pre></code>
+
+Let's create a simple project now! Note the SBT version 0.7.4 uses Scala 2.7.7, but it can build your project with Scala 2.7.3 - Scala 2.8.0.
+
+<pre><code>
+   ~/code/zuse: ./sbt 
+Project does not exist, create new project? (y/N/s) y
+Name: zuse
+Organization: zuse
+Version [1.0]: 
+Scala version [2.8.0]: 
+sbt version [0.7.4]: 
+Getting Scala 2.7.7 ...
+:: retrieving :: org.scala-tools.sbt#boot-scala
+	confs: [default]
+	4 artifacts copied, 0 already retrieved (11409kB/54ms)
+Getting org.scala-tools.sbt sbt_2.7.7 0.7.4 ...
+:: retrieving :: org.scala-tools.sbt#boot-app
+	confs: [default]
+	15 artifacts copied, 0 already retrieved (4096kB/31ms)
+[success] Successfully initialized directory structure.
+Getting Scala 2.8.0 ...
+:: retrieving :: org.scala-tools.sbt#boot-scala
+	confs: [default]
+	4 artifacts copied, 0 already retrieved (16637kB/79ms)
+[info] Building project zuse 1.0 against Scala 2.8.0
+[info]    using sbt.DefaultProject with sbt 0.7.4 and Scala 2.7.7
+> help
+You may execute any project action or one of the commands described below. Only one action may be executed at a time in interactive mode and is entered by name, as it would be at the command line. Also, tab completion is available.
+Available Commands:
+   <action name> : Executes the project specified action.
+   <method name> <parameter>* : Executes the project specified method.
+   <processor label> <arguments> : Runs the specified processor.
+   ~ <command> : Executes the project specified action or method whenever source files change.
+
+>
+
+ ~/code/zuse: find . -maxdepth 4 | grep -v git
+.
+./lib
+./project
+./project/boot
+./project/boot/sbt.boot.lock
+./project/boot/scala-2.7.7
+./project/boot/scala-2.7.7/lib
+./project/boot/scala-2.7.7/org.scala-tools.sbt
+./project/boot/scala-2.8.0
+./project/boot/scala-2.8.0/lib
+./project/boot/update.log
+./project/build.properties
+./README.textile
+./sbt
+./sbt-launch-0.7.4.jar
+./sbt.boot.properties
+./sbt.cmd
+./src
+./src/main
+./src/main/resources
+./src/main/scala
+./src/test
+./src/test/resources
+./src/test/scala
+./target
+./target/.history
+
+</pre></code>
+
+h2. Let's code!
+
+So, we've got a basic project structure! Let's repeat the Hello World ritual. We'll create an object with a main method, and ask SBT to compile and run it.
+SBT scans your classes for any objects with a main method. We've only got one, so it runs it immediately.
+
+<pre><code>
+ ~/code/zuse[master*]: cat src/main/scala/zuse/Hello.scala 
+package zuse
+
+object Hello {
+  def main(args: Array[String]) = println("Hello, World!")
+}
+
+ ~/code/zuse[master*]: ./sbt 
+[info] Building project zuse 1.0 against Scala 2.8.0
+[info]    using sbt.DefaultProject with sbt 0.7.4 and Scala 2.7.7
+> run
+[info] 
+[info] == copy-resources ==
+[info] == copy-resources ==
+[info] 
+[info] == compile ==
+[info]   Source analysis: 1 new/modified, 0 indirectly invalidated, 0 removed.
+[info] Compiling main sources...
+[info] Compilation successful.
+[info]   Post-analysis: 2 classes.
+[info] == compile ==
+[info] 
+[info] == run ==
+[info] Running zuse.Hello 
+Hello, World!
+[info] == run ==
+[success] Successful.
+[info] 
+[info] Total time: 5 s, completed Jul 25, 2010 6:56:31 PM
+> 
+</pre></code>
+
