@@ -58,7 +58,7 @@ object Collections {
 
   // Partitioning
   case class Person(name: String, age: Int)
-  val people: List[Person] = List(Person("Bob", 25), Person("Betty", 15), Person("Boris", 42), Person("Bill, 25"))
+  val people: List[Person] = List(Person("Bob", 25), Person("Betty", 15), Person("Boris", 42), Person("Bill", 25))
   val partitioned: (List[Person], List[Person]) = people.partition(_.age <= 18)
   val (minors, adults) = partitioned
 
