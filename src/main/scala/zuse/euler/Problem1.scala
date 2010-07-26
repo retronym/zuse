@@ -10,6 +10,10 @@ package zuse.euler
  */
 object Problem1 extends Application {
   def sumMultiples: Int = {
-    error("TODO")
+    def multipleOf(n: Int)(x: Int) = x % n == 0
+    val ms = (1 to 1000).filter(x => multipleOf(3)(x) || multipleOf(5)(x))
+    ms.sum
   }
+
+  assert(sumMultiples == 234168)
 }
