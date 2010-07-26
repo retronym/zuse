@@ -8,19 +8,10 @@ package zuse.euler
  *
  * Find the largest palindrome made from the product of two 3-digit numbers.
  */
-object Problem4 extends Application {
+object Problem4 {
   case class Result(x: Int, y: Int, product: Int)
 
   def largestPalindrome: Result = {
-    val palindromes = for{
-      i <- (1 to 999)
-      j <- (1 to i)
-      product = i * j
-      if product.toString == product.toString.reverse
-    } yield Result(i, j, product)
-
-    palindromes.max(Ordering.by((r: Result) => r.product))
+    error("TODO")
   }
-
-  assert(largestPalindrome == Result(993, 913, 906609))
 }
