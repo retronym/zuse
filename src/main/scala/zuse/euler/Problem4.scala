@@ -8,7 +8,7 @@ package zuse.euler
  *
  * Find the largest palindrome made from the product of two 3-digit numbers.
  */
-object Problem4 {
+object Problem4 extends Application {
   case class Result(x: Int, y: Int, product: Int)
 
   def largestPalindrome: Result = {
