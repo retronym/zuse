@@ -73,5 +73,8 @@ object Collections {
   val upToFirstTenPeople = people.take(10)
 
   val allButFirstTwoPeople = people.drop(2)
-  
+
+  // flatMap
+  val chars: Seq[Char] = people.flatMap(_.name)
+
 }
