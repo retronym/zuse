@@ -45,7 +45,7 @@ You can execute a snippet of code directly:
  <pre><code>
  ~/code/zuse: scala -e 'println("Hello, World!")'
  Hello, World!
- </pre></code>
+ </code></pre>
  
  Or, you can drop into a shell and evaluate expressions:
 
@@ -74,7 +74,7 @@ You can execute a snippet of code directly:
 
  scala> .toString
  res5: java.lang.String = 12
- </pre></code> 
+ </code></pre>
  
 h2. Documentation / Books
 
@@ -102,7 +102,7 @@ Scala/lib/scala-library.jar
 Scala/lib/scala-plugin-runners.jar
 Scala/lib/scala-plugin.jar
 Scala/lib/scalap.jar
-</pre></code>
+</code></pre>
 Netbeans and Eclipse also have Scala Plugins. TextMate, VIM, and Emacs also have Scala integration.
 
 h2. Build
@@ -123,7 +123,7 @@ I also add a custom properties file to trigger SBT to download the sources for S
 
 java $SBT_OPTS -Dfile.encoding=UTF-8 -Xss4M -Xmx1024M -XX:MaxPermSize=256M -jar `dirname $0`/sbt-launch-0.7.4.jar @sbt.boot.properties "$@"
 
-</pre></code>
+</code></pre>
 
 Let's create a simple project now! Note the SBT version 0.7.4 uses Scala 2.7.7, but it can build your project with Scala 2.7.3 - Scala 2.8.0.
 
@@ -187,7 +187,7 @@ Available Commands:
 ./target
 ./target/.history
 
-</pre></code>
+</code></pre>
 
 h2. Let's code!
 
@@ -223,5 +223,5 @@ Hello, World!
 [info] 
 [info] Total time: 5 s, completed Jul 25, 2010 6:56:31 PM
 > 
-</pre></code>
+</code></pre>
 
