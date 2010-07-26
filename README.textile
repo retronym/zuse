@@ -43,9 +43,10 @@ The Scala Interpreter is a great environment to experiment and learn.
  
 You can execute a snippet of code directly:
  <pre><code>~/code/zuse: scala -e 'println("Hello, World!")'
- Hello, World!</pre></code>
+ Hello, World!
+ </pre></code>
  
- Or, you can drop into a shell and evaluate expressions:
+ Or, you codeo a shell and evaluate expressions:
 
  <pre><code> ~/code/zuse: scala
  Welcome to Scala version 2.8.0.final (Java HotSpot(TM) 64-Bit Server VM, Java 1.6.0_20).
