@@ -1,6 +1,7 @@
 package zuse
 
 object Patterns {
+  // case classes are designed for pattern matching.
   case class Person(name: String, age: Int)
 
   val bob = Person("Bob", 32)
