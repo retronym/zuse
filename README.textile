@@ -4,6 +4,8 @@ What better way to communicate than through code? This is the home for samples, 
 
 *NOTE: You can skip some of these instructions and just clone or download the sources from this repository. You should be able to run the REPL from the command line, run SBT in the project (be sure to execute 'update' to download dependencies), and open the IntelliJ project.*
 
+*Replace `mate` with a text editor of your choice!*
+
 h2. Getting Started with Scala
 
 h3. Installing Scala
