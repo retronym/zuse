@@ -119,7 +119,7 @@ Scala projects can be build with Ant and Maven, but by far the best option for S
 
 You can install SBT once, and add the startup script to your path. It's also quite common to check in the tiny launcher JAR and the startup script into your project, which is convenient for 'checkout-and-build'.
 
-I also add a custom properties file to trigger SBT to download the sources for Scala itself, which is handy to link in to your IDE.
+-I also add a custom properties file to trigger SBT to download the sources for Scala itself, which is handy to link in to your IDE.- I've disabled this, it didn't work for everyone.
 
 <pre><code> ~/code/zuse: curl http://simple-build-tool.googlecode.com/files/sbt-launch-0.7.4.jar > sbt-launch-0.7.4.jar
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
