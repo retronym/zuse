@@ -39,11 +39,12 @@ object Patterns {
   }
   object AgeGroup {
     def unapply(p: Person) = p.age match {
-      case x if x < 18 => "Young"
-      case _ => "Old"
+      case x if x < 18 => Some("Young")
+      case x if x < 120 => Some("Old")
+      case _ => None
     }
   }
-  val AgeGroup(group) && Person(_, age) = bob
+  val AgeGroup(bobsAgeGroup) && Person(_, bobsAge) = bob
 
 
 }
