@@ -2,7 +2,7 @@
   <configuration default="false" name="Console" type="ScalaScriptConsoleRunConfiguration" factoryName="Scala Console">
     <module name="zuse" />
     <setting name="vmparams" value="-Xmx300M -Xss3M" />
-    <setting name="consoleArgs" value="" />
+    <setting name="consoleArgs" value="-usejavacp" />
     <RunnerSettings RunnerId="Profile ">
       <option name="myExternalizedOptions" value="&#10;additional-options2=onexit\=snapshot&#10;" />
     </RunnerSettings>
