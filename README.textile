@@ -2,6 +2,8 @@ h1. Zurich Scala Enthusiasts
 
 What better way to communicate than through code? This is the home for samples, demos, and exercises of the "Zurich Scala Enthusiasts":http://www.meetup.com/Zurich-Scala/.
 
+*NOTE: You can skip some of these instructions and just clone or download the sources from this repository. You should be able to run the REPL from the command line, run SBT in the project (be sure to execute 'update' to download dependencies), and open the IntelliJ project.*
+
 h2. Getting Started with Scala
 
 h3. Installing Scala
@@ -14,16 +16,20 @@ h3. Installing Scala
 
  ~/code/zuse: cd ~/scala/bin
 
+ ~/scala/bin: mate ~/.bash_profile    # Edit your bash profile to fix your path.
+ export SCALA_HOME=~/scala
+ export PATH=$PATH:$SCALA_HOME/bin
+ source $SCALA_HOME/misc/scala-tool-support/bash-completion/scala_completion.sh
+ 
+~ . ~/.bash_profile 
+
  ~/scala/bin: sbaz install scala-tool-support
  planning to install: scala-tool-support/2.8.0.RC7
  Installing...
  Downloading: http://scala.epfl.ch/downloads/packages/scala-tool-support-2.8.0.RC7.sbp
  179.5K/179.5K Done
  
- ~/scala/bin: mate ~/.bash_profile  
- export SCALA_HOME=~/scala
- export PATH=$PATH:$SCALA_HOME/bin
- source $SCALA_HOME/misc/scala-tool-support/bash-completion/scala_completion.sh ~
+~ . ~/.bash_profile
 
  ~/scala/bin: cd ~/code/zuse
  
