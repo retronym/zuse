@@ -10,6 +10,9 @@ package zuse.euler
  */
 object Problem1 extends Application {
   def sumMultiples: Int = {
-    error("TODO")
+    (1 to 1000) filter (x => x % 3 == 0 || x % 5 == 0) sum
+    
   }
+
+  println(sumMultiples)
 }

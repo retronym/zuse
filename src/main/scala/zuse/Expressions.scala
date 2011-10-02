@@ -1,19 +1,14 @@
 package zuse
 
 object Expressions {
-  val a: Int = 1
+  var a: Int = 1
   val b: Int = a + a
-  val c: Boolean = true
+  val c = true
 
-  val d: Int = if (c)
+  val d = if (c)
     a
   else
     b
-
-  val f: Int = e match {
-    case 1 => 100
-    case _ => 1
-  }
 
   val e: Int = try {
     d
@@ -21,7 +16,15 @@ object Expressions {
     case _ => -1
   }
 
-  val xs: Seq[(Int, Int)] = for {
+  val f: Int = e match {
+    case 1 => 100
+    case _ => 1
+  }
+
+  def okay(i: Int) = if (i > 9) true else false
+
+
+  val xs: Seq[(Int, Int)] = for{
     x <- Seq(1, 2, 3)
     y <- Seq(1, 2, 3)
   } yield (x, y)
@@ -42,5 +45,6 @@ object Expressions {
 
   // For methods that don't actually return at all, the type Nothing can be used.
   lazy val n1: Nothing = error("")
+
   def n2: Nothing = n2
 }

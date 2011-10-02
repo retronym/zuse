@@ -10,3 +10,6 @@ out
 tags
 *~
 build.log
+.idea
+.idea_modules
+.lib
